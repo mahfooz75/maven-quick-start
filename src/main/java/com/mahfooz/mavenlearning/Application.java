@@ -1,6 +1,7 @@
 package com.mahfooz.mavenlearning;
 import java.util.List;
 import java.util.ArrayList;
+import org.apache.commons.lang3.StringUtils;
 
 public class Application
 {
@@ -14,6 +15,8 @@ public class Application
 		System.out.println("Starting Application");
 		Application app = new Application();
 		app.greet();
+		int count = app.countWord("I have four words");
+		System.out.println(count);
 	}
 	
 	public void greet()
@@ -24,5 +27,11 @@ public class Application
 		{
 			System.out.println(greeting);
 		}
+	}
+	
+	public int countWord(String words)
+	{
+		String[] separateWords=StringUtils.split(words,' ');
+		return (separateWords==null)?0:separateWords.length;
 	}
 }
